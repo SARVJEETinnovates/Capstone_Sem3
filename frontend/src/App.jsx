@@ -3,6 +3,11 @@ import { useState, useEffect } from 'react'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
+import Patients from './pages/Patients'
+import Appointments from './pages/Appointments'
+import Billing from './pages/Billing'
+import Reports from './pages/Reports'
+import Layout from './components/Layout'
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -17,11 +22,19 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
         <Route path="/signup" element={<Signup setAuth={setIsAuthenticated} />} />
-        <Route 
-          path="/dashboard" 
-          element={isAuthenticated ? <Dashboard setAuth={setIsAuthenticated} /> : <Navigate to="/login" />} 
-        />
-        <Route path="/" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} />} />
+        
+        {isAuthenticated ? (
+          <Route path="/" element={<Layout setAuth={setIsAuthenticated} />}>
+            <Route index element={<Navigate to="/dashboard" />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="patients" element={<Patients />} />
+            <Route path="appointments" element={<Appointments />} />
+            <Route path="billing" element={<Billing />} />
+            <Route path="reports" element={<Reports />} />
+          </Route>
+        ) : (
+          <Route path="*" element={<Navigate to="/login" />} />
+        )}
       </Routes>
     </Router>
   )

@@ -11,6 +11,47 @@ function Billing() {
 
   const [filterStatus, setFilterStatus] = useState('all')
   const [showModal, setShowModal] = useState(false)
+  const [formData, setFormData] = useState({
+    patient: '',
+    services: '',
+    amount: '',
+    date: '',
+    paymentMethod: 'Cash'
+  })
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    
+    if (!formData.patient || !formData.services || !formData.amount || !formData.date) {
+      alert('Please fill in all required fields')
+      return
+    }
+
+    const newBill = {
+      id: bills.length + 1,
+      patient: formData.patient,
+      amount: parseFloat(formData.amount),
+      status: 'Pending',
+      date: formData.date,
+      services: formData.services
+    }
+
+    setBills([...bills, newBill])
+    setShowModal(false)
+    setFormData({
+      patient: '',
+      services: '',
+      amount: '',
+      date: '',
+      paymentMethod: 'Cash'
+    })
+    alert('Bill generated successfully!')
+  }
 
   const filteredBills = bills.filter(bill => 
     filterStatus === 'all' || bill.status.toLowerCase() === filterStatus
@@ -114,28 +155,61 @@ function Billing() {
               <h2>Create New Bill</h2>
               <button className="close-btn" onClick={() => setShowModal(false)}>✕</button>
             </div>
-            <form className="modal-form">
+            <form className="modal-form" onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Patient Name</label>
-                <input type="text" placeholder="Select patient" />
+                <label>Patient Name *</label>
+                <input 
+                  type="text" 
+                  name="patient"
+                  placeholder="Enter patient name" 
+                  value={formData.patient}
+                  onChange={handleInputChange}
+                  required
+                />
               </div>
               <div className="form-group">
-                <label>Services</label>
-                <textarea placeholder="List of services provided" rows="3"></textarea>
+                <label>Services *</label>
+                <textarea 
+                  name="services"
+                  placeholder="List of services provided" 
+                  rows="3"
+                  value={formData.services}
+                  onChange={handleInputChange}
+                  required
+                ></textarea>
               </div>
               <div className="form-row">
                 <div className="form-group">
-                  <label>Amount</label>
-                  <input type="number" placeholder="0.00" />
+                  <label>Amount *</label>
+                  <input 
+                    type="number" 
+                    name="amount"
+                    placeholder="0.00" 
+                    value={formData.amount}
+                    onChange={handleInputChange}
+                    required
+                    min="0"
+                    step="0.01"
+                  />
                 </div>
                 <div className="form-group">
-                  <label>Date</label>
-                  <input type="date" />
+                  <label>Date *</label>
+                  <input 
+                    type="date" 
+                    name="date"
+                    value={formData.date}
+                    onChange={handleInputChange}
+                    required
+                  />
                 </div>
               </div>
               <div className="form-group">
                 <label>Payment Method</label>
-                <select>
+                <select 
+                  name="paymentMethod"
+                  value={formData.paymentMethod}
+                  onChange={handleInputChange}
+                >
                   <option>Cash</option>
                   <option>Card</option>
                   <option>Insurance</option>

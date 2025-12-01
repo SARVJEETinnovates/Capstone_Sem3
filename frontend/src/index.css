@@ -5,17 +5,17 @@
 }
 
 :root {
-  --primary: #4f46e5;
-  --primary-dark: #4338ca;
-  --secondary: #06b6d4;
+  --primary: #000000;
+  --primary-dark: #1a1a1a;
+  --secondary: #333333;
   --success: #10b981;
   --warning: #f59e0b;
   --danger: #ef4444;
-  --dark: #1f2937;
-  --light: #f9fafb;
-  --border: #e5e7eb;
-  --text: #374151;
-  --text-light: #6b7280;
+  --dark: #000000;
+  --light: #f5f5f5;
+  --border: #e0e0e0;
+  --text: #000000;
+  --text-light: #666666;
 }
 
 body {
@@ -24,8 +24,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--light);
-  color: var(--text);
+  background: #ffffff;
+  color: #000000;
   min-height: 100vh;
 }
 
@@ -35,13 +35,14 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #ffffff;
 }
 
 .auth-card {
   background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
   padding: 40px;
   width: 100%;
   max-width: 420px;
@@ -60,14 +61,14 @@ body {
 }
 
 .auth-card h2 {
-  color: #333;
+  color: #000000;
   margin-bottom: 10px;
   font-size: 28px;
   font-weight: 700;
 }
 
 .auth-card p {
-  color: #666;
+  color: #666666;
   margin-bottom: 30px;
   font-size: 14px;
 }
@@ -79,7 +80,7 @@ body {
 .form-group label {
   display: block;
   margin-bottom: 8px;
-  color: #333;
+  color: #000000;
   font-weight: 500;
   font-size: 14px;
 }
@@ -87,35 +88,38 @@ body {
 .form-group input {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
   font-size: 15px;
   transition: all 0.3s ease;
   outline: none;
+  background: #ffffff;
+  color: #000000;
 }
 
 .form-group input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
 }
 
 .btn {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #000000;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
   margin-top: 10px;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+  background: #1a1a1a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn:active {
@@ -125,12 +129,12 @@ body {
 .auth-link {
   text-align: center;
   margin-top: 20px;
-  color: #666;
+  color: #666666;
   font-size: 14px;
 }
 
 .auth-link a {
-  color: #667eea;
+  color: #000000;
   text-decoration: none;
   font-weight: 600;
 }
@@ -162,33 +166,36 @@ body {
 .dashboard {
   min-height: 100vh;
   padding: 40px 20px;
+  background: #ffffff;
 }
 
 .dashboard-card {
   background: white;
-  border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
   padding: 40px;
   max-width: 600px;
   margin: 0 auto;
 }
 
 .dashboard-card h1 {
-  color: #333;
+  color: #000000;
   margin-bottom: 20px;
 }
 
 .dashboard-card p {
-  color: #666;
+  color: #666666;
   margin-bottom: 30px;
 }
 
 .btn-logout {
-  background: #dc3545;
+  background: #000000;
   padding: 12px 24px;
   width: auto;
 }
 
 .btn-logout:hover {
-  box-shadow: 0 10px 20px rgba(220, 53, 69, 0.3);
+  background: #1a1a1a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }

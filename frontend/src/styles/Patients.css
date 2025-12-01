@@ -11,10 +11,10 @@
 
 .btn-primary {
   padding: 12px 24px;
-  background: var(--primary);
+  background: #000000;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
@@ -24,9 +24,9 @@
 }
 
 .btn-primary:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+  background: #1a1a1a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .filters-bar {
@@ -83,8 +83,8 @@
 
 .table-container {
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
   overflow: hidden;
 }
 
@@ -132,7 +132,7 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--primary);
+  background: #000000;
   color: white;
   display: flex;
   align-items: center;
@@ -178,12 +178,14 @@
 }
 
 .btn-icon:hover {
-  background: var(--primary);
+  background: #000000;
+  color: white;
   transform: scale(1.1);
 }
 
 .btn-icon.danger:hover {
-  background: var(--danger);
+  background: #000000;
+  color: white;
 }
 
 .modal-overlay {
@@ -202,7 +204,8 @@
 
 .modal {
   background: white;
-  border-radius: 16px;
+  border-radius: 12px;
+  border: 1px solid #e0e0e0;
   width: 90%;
   max-width: 600px;
   max-height: 90vh;
@@ -232,7 +235,7 @@
 .modal-header h2 {
   font-size: 24px;
   font-weight: 700;
-  color: var(--dark);
+  color: #000000;
 }
 
 .close-btn {

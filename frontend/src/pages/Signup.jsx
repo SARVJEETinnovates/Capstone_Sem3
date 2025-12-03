@@ -15,7 +15,7 @@ function Signup({ setAuth }) {
     setLoading(true)
 
     try {
-      const response = await fetch('https://capstone-sem3-u392.onrender.com/api/auth/signup', {
+      const response = await fetch('http://localhost:3001/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, password }),
@@ -30,7 +30,9 @@ function Signup({ setAuth }) {
       localStorage.setItem('token', data.token)
       localStorage.setItem('user', JSON.stringify(data.user))
       setAuth(true)
-      navigate('/dashboard')
+      
+      // Force reload to update auth state
+      window.location.href = '/dashboard'
     } catch (err) {
       setError(err.message || 'Network error. Please check if backend is running.')
       console.error('Signup error:', err)

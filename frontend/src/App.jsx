@@ -10,31 +10,50 @@ import Reports from './pages/Reports'
 import Layout from './components/Layout'
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return !!localStorage.getItem('token')
+  })
 
   useEffect(() => {
     const token = localStorage.getItem('token')
     setIsAuthenticated(!!token)
   }, [])
 
+  const handleSetAuth = (value) => {
+    setIsAuthenticated(value)
+  }
+
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login setAuth={setIsAuthenticated} />} />
-        <Route path="/signup" element={<Signup setAuth={setIsAuthenticated} />} />
+        <Route 
+          path="/login" 
+          element={
+            isAuthenticated ? <Navigate to="/dashboard" replace /> : <Login setAuth={handleSetAuth} />
+          } 
+        />
+        <Route 
+          path="/signup" 
+          element={
+            isAuthenticated ? <Navigate to="/dashboard" replace /> : <Signup setAuth={handleSetAuth} />
+          } 
+        />
         
-        {isAuthenticated ? (
-          <Route path="/" element={<Layout setAuth={setIsAuthenticated} />}>
-            <Route index element={<Navigate to="/dashboard" />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="patients" element={<Patients />} />
-            <Route path="appointments" element={<Appointments />} />
-            <Route path="billing" element={<Billing />} />
-            <Route path="reports" element={<Reports />} />
-          </Route>
-        ) : (
-          <Route path="*" element={<Navigate to="/login" />} />
-        )}
+        <Route 
+          path="/" 
+          element={
+            isAuthenticated ? <Layout setAuth={handleSetAuth} /> : <Navigate to="/login" replace />
+          }
+        >
+          <Route index element={<Navigate to="/dashboard" replace />} />
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="patients" element={<Patients />} />
+          <Route path="appointments" element={<Appointments />} />
+          <Route path="billing" element={<Billing />} />
+          <Route path="reports" element={<Reports />} />
+        </Route>
+
+        <Route path="*" element={<Navigate to={isAuthenticated ? "/dashboard" : "/login"} replace />} />
       </Routes>
     </Router>
   )

@@ -37,7 +37,7 @@ function Appointments() {
         limit: 10
       })
 
-      const response = await fetch(`http://localhost:3001/api/appointments?${params}`, {
+      const response = await fetch(`https://capstone-sem3-u392.onrender.com/api/appointments?${params}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
 
@@ -62,8 +62,8 @@ function Appointments() {
     try {
       const token = localStorage.getItem('token')
       const url = editingAppointment 
-        ? `http://localhost:3001/api/appointments/${editingAppointment.id}`
-        : 'http://localhost:3001/api/appointments'
+        ? `https://capstone-sem3-u392.onrender.com/api/appointments/${editingAppointment.id}`
+        : 'https://capstone-sem3-u392.onrender.com/api/appointments'
       
       const response = await fetch(url, {
         method: editingAppointment ? 'PUT' : 'POST',
@@ -106,7 +106,7 @@ function Appointments() {
     if (window.confirm('Are you sure you want to delete this appointment?')) {
       try {
         const token = localStorage.getItem('token')
-        const response = await fetch(`http://localhost:3001/api/appointments/${id}`, {
+        const response = await fetch(`https://capstone-sem3-u392.onrender.com/api/appointments/${id}`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${token}` }
         })

@@ -23,7 +23,7 @@ function Dashboard() {
   const fetchStats = async () => {
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch('http://localhost:3001/api/reports/summary', {
+      const response = await fetch('https://capstone-sem3-u392.onrender.com/api/reports/summary', {
         headers: {
           'Authorization': `Bearer ${token}`
         }

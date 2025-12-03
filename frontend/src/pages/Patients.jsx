@@ -41,7 +41,7 @@ function Patients() {
         limit: 10
       })
 
-      const response = await fetch(`http://localhost:3001/api/patients?${params}`, {
+      const response = await fetch(`https://capstone-sem3-u392.onrender.com/api/patients?${params}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -68,8 +68,8 @@ function Patients() {
     try {
       const token = localStorage.getItem('token')
       const url = editingPatient 
-        ? `http://localhost:3001/api/patients/${editingPatient.id}`
-        : 'http://localhost:3001/api/patients'
+        ? `https://capstone-sem3-u392.onrender.com/api/patients/${editingPatient.id}`
+        : 'https://capstone-sem3-u392.onrender.com/api/patients'
       
       const response = await fetch(url, {
         method: editingPatient ? 'PUT' : 'POST',
@@ -112,7 +112,7 @@ function Patients() {
     if (window.confirm('Are you sure you want to delete this patient?')) {
       try {
         const token = localStorage.getItem('token')
-        const response = await fetch(`http://localhost:3001/api/patients/${id}`, {
+        const response = await fetch(`https://capstone-sem3-u392.onrender.com/api/patients/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`

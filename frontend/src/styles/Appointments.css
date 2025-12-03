@@ -113,50 +113,128 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .appointments-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  .appointments-page {
+    padding: 0;
+  }
+
   .page-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .page-header h1 {
+    font-size: 22px;
+  }
+
+  .page-header p {
+    font-size: 14px;
   }
 
   .btn-primary {
     width: 100%;
+    padding: 12px 16px;
   }
 
   .filters-bar {
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
   }
 
   .filter-select {
     width: 100%;
+    padding: 10px 12px;
   }
 
   .appointments-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .appointment-card {
     padding: 16px;
   }
 
-  .modal {
-    width: 95%;
-    max-height: 85vh;
+  .appointment-header {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
+  .status-badge {
+    padding: 4px 8px;
+    font-size: 11px;
   }
 
-  .modal-actions {
-    flex-direction: column;
+  .appointment-type {
+    font-size: 11px;
   }
 
-  .btn-secondary,
-  .btn-primary {
-    width: 100%;
+  .appointment-body {
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .appointment-info {
+    gap: 10px;
+  }
+
+  .info-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .info-label {
+    font-size: 11px;
+  }
+
+  .info-value {
+    font-size: 13px;
+  }
+
+  .appointment-actions {
+    gap: 6px;
+    padding-top: 12px;
+  }
+
+  .btn-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .no-data {
+    padding: 40px 16px;
+    font-size: 14px;
+  }
+
+  .loading {
+    padding: 40px 16px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-header h1 {
+    font-size: 20px;
+  }
+
+  .appointment-card {
+    padding: 14px;
+  }
+
+  .info-value {
+    font-size: 12px;
   }
 }

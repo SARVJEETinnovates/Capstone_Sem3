@@ -29,9 +29,7 @@ function Login({ setAuth }) {
       localStorage.setItem('token', data.token)
       localStorage.setItem('user', JSON.stringify(data.user))
       setAuth(true)
-      
-      // Force reload to update auth state
-      window.location.href = '/dashboard'
+      navigate('/dashboard')
     } catch (err) {
       setError(err.message || 'Network error. Please check if backend is running.')
       console.error('Login error:', err)

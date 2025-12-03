@@ -6,11 +6,13 @@ function Signup({ setAuth }) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
+    setLoading(true)
 
     try {
       const response = await fetch('https://capstone-sem3-u392.onrender.com/api/auth/signup', {
@@ -30,7 +32,10 @@ function Signup({ setAuth }) {
       setAuth(true)
       navigate('/dashboard')
     } catch (err) {
-      setError(err.message)
+      setError(err.message || 'Network error. Please check if backend is running.')
+      console.error('Signup error:', err)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -75,7 +80,9 @@ function Signup({ setAuth }) {
             />
           </div>
           
-          <button type="submit" className="btn">Sign Up</button>
+          <button type="submit" className="btn" disabled={loading}>
+            {loading ? 'Signing up...' : 'Sign Up'}
+          </button>
         </form>
         
         <div className="auth-link">

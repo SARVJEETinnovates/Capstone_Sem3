@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../styles/Dashboard.css'
 
 function Dashboard() {
-  const [stats, setStats] = useState({
+  const navigate = useNavigate()
+  const user = JSON.parse(localStorage.getItem('user') || '{}')
+  
+  const [stats] = useState({
     totalPatients: 1247,
     todayAppointments: 32,
     pendingBills: 18,
@@ -19,8 +23,10 @@ function Dashboard() {
   return (
     <div className="dashboard-page">
       <div className="page-header">
-        <h1>Dashboard</h1>
-        <p>Welcome back! Here's what's happening today.</p>
+        <div>
+          <h1>Welcome back, {user.name || 'User'}! 👋</h1>
+          <p>Here's what's happening in your hospital today.</p>
+        </div>
       </div>
 
       <div className="stats-grid">
@@ -78,21 +84,21 @@ function Dashboard() {
         </div>
 
         <div className="quick-actions">
-          <h2>Quick Actions</h2>
+          <h2>Quick Links</h2>
           <div className="action-buttons">
-            <button className="action-btn">
-              <span>➕</span>
-              Add Patient
+            <button className="action-btn" onClick={() => navigate('/patients')}>
+              <span>👥</span>
+              View Patients
             </button>
-            <button className="action-btn">
+            <button className="action-btn" onClick={() => navigate('/appointments')}>
               <span>📅</span>
-              New Appointment
+              View Appointments
             </button>
-            <button className="action-btn">
+            <button className="action-btn" onClick={() => navigate('/billing')}>
               <span>💰</span>
-              Create Bill
+              View Billing
             </button>
-            <button className="action-btn">
+            <button className="action-btn" onClick={() => navigate('/reports')}>
               <span>📊</span>
               View Reports
             </button>

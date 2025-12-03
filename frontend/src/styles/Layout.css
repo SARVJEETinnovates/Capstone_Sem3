@@ -145,6 +145,8 @@
   margin-left: 280px;
   padding: 32px;
   min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-attachment: fixed;
 }
 
 @media (max-width: 768px) {

@@ -147,6 +147,8 @@
   min-height: 100vh;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   background-attachment: fixed;
+  width: calc(100% - 280px);
+  overflow-x: hidden;
 }
 
 @media (max-width: 768px) {
@@ -198,6 +200,7 @@
   .main-content {
     margin-left: 70px;
     padding: 16px;
+    width: calc(100% - 70px);
   }
 
   .sidebar-header {
@@ -257,6 +260,7 @@
   .main-content {
     margin-left: 60px;
     padding: 12px;
+    width: calc(100% - 60px);
   }
 
   .sidebar-header {

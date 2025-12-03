@@ -12,6 +12,45 @@ model User {
   email     String   @unique
   name      String?
   password  String
+  role      String   @default("staff")
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Patient {
+  id        String   @id @default(cuid())
+  name      String
+  age       Int?
+  gender    String?
+  phone     String
+  email     String?
+  address   String?
+  status    String   @default("Active")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Appointment {
+  id          String   @id @default(cuid())
+  patientName String
+  doctorName  String
+  date        String
+  time        String
+  type        String   @default("Checkup")
+  status      String   @default("Pending")
+  notes       String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Bill {
+  id            String   @id @default(cuid())
+  patientName   String
+  services      String
+  amount        Float
+  date          String
+  status        String   @default("Pending")
+  paymentMethod String   @default("Cash")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }

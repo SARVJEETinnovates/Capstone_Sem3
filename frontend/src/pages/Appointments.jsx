@@ -146,7 +146,7 @@ function Appointments() {
       <div className="page-header">
         <div>
           <h1>Appointments</h1>
-          <p>Complete CRUD operations with filters</p>
+          <p>Schedule and manage patient appointments</p>
         </div>
         <button className="btn-primary" onClick={openAddModal}>
           📅 New Appointment

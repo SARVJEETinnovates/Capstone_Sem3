@@ -154,7 +154,7 @@ function Patients() {
       <div className="page-header">
         <div>
           <h1>Patients Management</h1>
-          <p>Complete CRUD operations with search, filter, sort & pagination</p>
+          <p>Manage and track all patient records</p>
         </div>
         <button className="btn-primary" onClick={openAddModal}>
           ➕ Add New Patient

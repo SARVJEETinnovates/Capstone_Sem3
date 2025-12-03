@@ -152,7 +152,7 @@ function Billing() {
       <div className="page-header">
         <div>
           <h1>Billing & Invoices</h1>
-          <p>Complete CRUD operations for billing management</p>
+          <p>Manage payments and generate invoices</p>
         </div>
         <button className="btn-primary" onClick={openAddModal}>
           💰 Create New Bill

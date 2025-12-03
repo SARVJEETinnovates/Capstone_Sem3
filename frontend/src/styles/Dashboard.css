@@ -97,6 +97,12 @@
   font-weight: 500;
 }
 
+.stat-sublabel {
+  font-size: 12px;
+  color: #999999;
+  margin-top: 4px;
+}
+
 .dashboard-content {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -133,7 +139,7 @@
   gap: 12px;
   padding: 12px;
   border-radius: 10px;
-  background: var(--light);
+  background: #f5f5f5;
   transition: all 0.2s ease;
 }
 

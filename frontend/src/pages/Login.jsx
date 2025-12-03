@@ -14,7 +14,7 @@ function Login({ setAuth }) {
     setLoading(true)
 
     try {
-      const response = await fetch('https://capstone-sem3-u392.onrender.com/api/auth/login', {
+      const response = await fetch('http://localhost:3001/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
